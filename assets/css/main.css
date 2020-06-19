@@ -1,0 +1,1796 @@
+strong {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::after, ::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333;
+  text-align: left;
+  background-color: #e9ebee;
+}
+
+.button, button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-weight: 600;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  height: 40px;
+  font-size: 14px;
+}
+
+.button:nth-last-child(1), button:nth-last-child(1) {
+  margin-right: 0;
+}
+
+.button svg, button svg {
+  width: 20px;
+  margin-left: 10px;
+}
+
+.button:hover, button:hover {
+  background-color: #162f4a;
+}
+
+.primaryBtn {
+  background-color: #007bff;
+}
+
+.errorBtn {
+  background-color: #cc0000;
+}
+
+.secondaryBtn {
+  background-color: #6c757d;
+}
+
+.errorMsg {
+  float: left;
+  width: 100%;
+  color: #cc0000;
+  font-size: 16px;
+  padding: 10px 0;
+}
+
+.modalWrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 10;
+}
+
+.modalWrap .modalContent {
+  width: 600px;
+  background-color: #fff;
+  position: relative;
+  border-radius: 10px;
+}
+
+.modalWrap .modalContent .modalCloseBtn {
+  position: absolute;
+  right: 15px;
+  top: -40px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background: #007bff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modalWrap .modalContent .modalCloseBtn svg {
+  width: 20px;
+  color: #fff;
+}
+
+.modalWrap .modalContent .modalHead {
+  float: left;
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  padding: 0 30px;
+}
+
+.modalWrap .modalContent .modalHead .mHeadline {
+  padding: 20px 0;
+}
+
+.modalWrap .modalContent .modalMiddle {
+  float: left;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 30px;
+}
+
+.modalWrap .modalContent .modalMiddle .btnsWrap {
+  float: left;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 20px;
+}
+
+.modalWrap .modalContent .showBigPPModal {
+  float: left;
+  width: 100%;
+}
+
+.modalWrap .modalContent .showBigPPModal img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.containerAll {
+  float: left;
+  width: 100%;
+}
+
+.containerAll header {
+  float: left;
+  width: 100%;
+  background-color: #0b4aa0;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 30px;
+  color: #fff;
+}
+
+.containerAll header .headLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.containerAll header .headLeft .logo {
+  color: #fff;
+  font-weight: 600;
+  font-family: "MuseoModerno", cursive;
+  font-size: 26px;
+}
+
+.containerAll header .headRightWelcome {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.containerAll header .headRightWelcome .loginBtn {
+  background: transparent;
+  border: 1px solid #fff;
+}
+
+.containerAll header .headRightWelcome .loginBtn:hover {
+  background-color: #fff;
+  color: #007bff;
+}
+
+.containerAll header .headRightWelcome .registerBtn {
+  background: #007bff;
+  border: 1px solid #007bff;
+}
+
+.containerAll header .headRightWelcome .registerBtn:hover {
+  background-color: #162f4a;
+  border: 1px solid #162f4a;
+}
+
+.containerAll header .headRight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 60px;
+}
+
+.containerAll header .headRight .headLinks {
+  float: left;
+  white-space: nowrap;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 20px;
+}
+
+.containerAll header .headRight .headLinks a {
+  color: #fff;
+  padding: 0 20px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.containerAll header .headRight .headLinks a svg {
+  width: 7px;
+  margin-right: 5px;
+}
+
+.containerAll header .headRight .headAccount {
+  float: left;
+  white-space: nowrap;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-left: 1px solid #5577a7;
+  padding-left: 20px;
+}
+
+.containerAll header .headRight .headAccount a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.containerAll header .headRight .headAccount img {
+  width: 45px;
+  height: 45px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.containerAll header .headRight .headAccount span {
+  float: left;
+  width: calc(100% - 50px);
+  padding-right: 20px;
+  color: #fff;
+  font-size: 16px;
+  text-align: right;
+  font-weight: 600;
+}
+
+.containerAll header .sideMenuOpenBtn {
+  float: left;
+  cursor: pointer;
+  height: 34px;
+  display: none;
+}
+
+.containerAll header .sideMenuOpenBtn svg {
+  width: 30px;
+  color: #fff;
+}
+
+.containerAll header .sideMenu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.containerAll header .sideMenu .sideMenuCloseBtn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.containerAll header .sideMenu .sideMenuCloseBtn svg {
+  width: 25px;
+  color: #fff;
+}
+
+.containerAll header .sideMenu .sideMenuContent {
+  float: left;
+  width: 300px;
+  z-index: 2;
+  background-color: #162f4a;
+  padding: 50px 30px;
+}
+
+.containerAll header .sideMenu .sideMenuContent ul {
+  float: left;
+  width: 100%;
+}
+
+.containerAll header .sideMenu .sideMenuContent ul li {
+  float: left;
+  width: 100%;
+}
+
+.containerAll header .sideMenu .sideMenuContent ul li button {
+  float: left;
+  width: 100%;
+  border-radius: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background: transparent;
+  border-bottom: 1px solid #203f69;
+  padding: 30px 0;
+}
+
+.containerAll header .sideMenu .sideMenuContent ul li button svg {
+  width: 5px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.containerAll header .sideMenu .sideMenuContent ul li button:hover {
+  background-color: #fff;
+  color: #007bff;
+}
+
+.containerAll header .sideMenu .sideMenuContent .accountInfo a {
+  float: left;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #0b4aa0;
+  padding-bottom: 20px;
+}
+
+.containerAll header .sideMenu .sideMenuContent .accountInfo a img {
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.containerAll header .sideMenu .sideMenuContent .accountInfo a span {
+  float: left;
+  width: calc(100% - 50px);
+  padding-left: 10px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.containerAll header .sideMenu .sideMenuOverlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.containerAll .container {
+  max-width: 1140px;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  padding: 30px 50px;
+  margin: 0 auto;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.containerAll .headline {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.containerAll .headline svg {
+  width: 25px;
+  margin-right: 10px;
+}
+
+.containerAll .welcome {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: url(../images/bg.jpeg) center center no-repeat;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.containerAll .welcome .overlayBg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.containerAll .welcome .welcomeForm {
+  max-width: 500px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.containerAll .welcome .welcomeForm .formHead {
+  float: left;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.containerAll .welcome .welcomeForm .formHead svg {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.containerAll .welcome .welcomeForm button {
+  width: 100%;
+}
+
+.containerAll .welcome .welcomeForm .formW100 {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.containerAll .welcome .welcomeForm .formW100 input {
+  float: left;
+  width: 100%;
+  padding: 10px;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.containerAll .welcome .welcomeForm .formW50 {
+  float: left;
+  width: 48%;
+}
+
+.containerAll .welcome .welcomeForm .formW50:nth-child(1) {
+  margin-right: 2%;
+}
+
+.containerAll .welcome .welcomeForm .formW50:nth-child(2) {
+  margin-left: 2%;
+}
+
+.containerAll .welcome .welcomeForm .gender .radio {
+  float: left;
+  margin-right: 20px;
+}
+
+.containerAll .welcome .welcomeForm .inputHead {
+  float: left;
+  width: 100%;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.containerAll .welcome .welcomeBottom {
+  float: left;
+  width: 100%;
+  margin-top: 50px;
+  max-width: 300px;
+  z-index: 2;
+}
+
+.containerAll .welcome .welcomeBottom span {
+  float: left;
+  width: 100%;
+  font-size: 16px;
+  line-height: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.containerAll .welcome .welcomeBottom .bottomBtn {
+  float: left;
+  width: 100%;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  text-align: center;
+}
+
+.containerAll .welcome .welcomeBottom .bottomBtn:hover {
+  background-color: #0b4aa0;
+  border: 1px solid #0b4aa0;
+}
+
+.containerAll .welcome .welcomeLine {
+  float: left;
+  width: 100%;
+  color: #fff;
+  margin-bottom: 50px;
+  text-align: center;
+  z-index: 2;
+  font-weight: 600;
+}
+
+.containerAll .welcome .welcomeLine span {
+  float: left;
+  width: 100%;
+}
+
+.containerAll .welcome .welcomeLine span:nth-child(1) {
+  font-size: 40px;
+  line-height: 50px;
+  text-shadow: 1px 1px 20px #a79a9a;
+}
+
+.containerAll .welcome .welcomeLine span:nth-child(2) {
+  font-size: 20px;
+}
+
+.containerAll .uploadPPInput {
+  display: none;
+}
+
+.containerAll .emailVerified {
+  padding: 20px 0;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.containerAll .profileWrap {
+  float: left;
+  width: 100%;
+}
+
+.containerAll .profileWrap .headline {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.containerAll .profileWrap .profileInfoHead {
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.containerAll .profileWrap .profileInfoHead .profilPhoto {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #222;
+  border: 2px solid #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  float: left;
+}
+
+.containerAll .profileWrap .profileInfoHead .profilPhoto img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.containerAll .profileWrap .profileInfoHead ul {
+  float: left;
+  width: calc(100% - 250px);
+  padding-left: 20px;
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li {
+  float: left;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.fullName {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.email {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn a {
+  font-size: 16px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #0b4aa0;
+  margin-right: 10px;
+  height: 34px;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn a svg {
+  width: 20px;
+  margin-left: 20px;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn a.primaryBtn {
+  background-color: #007bff;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn a:hover {
+  background-color: #162f4a;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu {
+  position: relative;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .userPageMenuBtn {
+  width: 35px;
+  padding: 6px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  margin-right: 0;
+  height: 34px;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .userPageMenuBtn svg {
+  width: 20px;
+  margin-left: 0;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .subList {
+  position: absolute;
+  top: 34px;
+  right: 0;
+  background-color: #fff;
+  width: 150px;
+  padding: 10px 0;
+  height: auto;
+  display: none;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .subList li {
+  float: left;
+  width: 100%;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .subList li a {
+  font-size: 14px;
+  margin-right: 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu:hover .subList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn.friendMessage a {
+  background-color: #0b4aa0;
+}
+
+.containerAll .profileWrap .profileInfoHead ul li .removePphoto {
+  cursor: pointer;
+}
+
+.containerAll .profileWrap .firstInfoPhoto {
+  float: left;
+  width: 100%;
+}
+
+.containerAll .profileWrap .firstInfoPhoto img {
+  width: 100%;
+}
+
+.containerAll .profileWrap .firstInfoPhoto .addBioBtn {
+  float: left;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #cc0000;
+  color: #fff;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: underline;
+}
+
+.containerAll .profileWrap .firstInfoPhoto .addBioBtn svg {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.containerAll .profileWrap .profileDetail {
+  float: left;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.containerAll .profileWrap .profileDetail .textareaWrap {
+  float: left;
+  width: 100%;
+}
+
+.containerAll .profileWrap .profileDetail .textareaWrap textarea {
+  float: left;
+  width: 100%;
+  height: 125px;
+  resize: none;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ececec;
+  background-color: #fff;
+  color: #333;
+  font-family: "Nunito", sans-serif;
+}
+
+.containerAll .profileWrap .profileDetail .accountTypeSelect {
+  float: left;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.containerAll .profileWrap .profileDetail .accountTypeSelect .radio {
+  float: left;
+  margin-right: 20px;
+}
+
+.containerAll .profileWrap .profileDetail .pdLine {
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #ececec;
+  line-height: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.containerAll .profileWrap .profileDetail .pdLine .pdHead {
+  float: left;
+  width: 100%;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.containerAll .profileWrap .profileDetail .pdLine .uiLineLeft {
+  float: left;
+  width: 200px;
+  padding: 0 20px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.containerAll .profileWrap .profileDetail .pdLine .uiLineRight {
+  float: left;
+  width: calc(100% - 200px);
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 60px;
+}
+
+.containerAll .profileWrap .profileDetail .pdLine .uiLineRight input {
+  outline: 0;
+  padding: 5px 10px 5px 0;
+  width: 100%;
+  font-family: "Nunito", sans-serif;
+  border: 0;
+  font-size: 18px;
+}
+
+.containerAll .profileWrap .profileDetail .pdLine.textarea {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-bottom: 0;
+}
+
+.containerAll .profileWrap .profileDetail .pdLine.longMB {
+  margin-bottom: 40px;
+}
+
+.containerAll .notify {
+  float: left;
+  width: 100%;
+  height: 50px;
+  z-index: 1;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 20px;
+}
+
+.containerAll .notify span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  padding-right: 10px;
+}
+
+.containerAll .notify svg {
+  width: 20px;
+  color: #fff;
+}
+
+.containerAll .notify.success {
+  background-color: #28a745;
+}
+
+.containerAll .notify.error {
+  background-color: #cc0000;
+}
+
+.containerAll .bottomBtns {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.containerAll .bottomBtns .saveBtn {
+  font-size: 18px;
+  float: left;
+  width: 150px;
+}
+
+.containerAll .bottomBtns .saveBtn svg {
+  width: 15px;
+  margin-left: 20px;
+}
+
+.containerAll .bottomBtns .backToProfile {
+  float: left;
+  margin-right: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 18px;
+}
+
+.containerAll .bottomBtns .backToProfile svg {
+  width: 15px;
+  margin-left: 20px;
+}
+
+.containerAll .usersWrap {
+  float: let;
+  width: 100%;
+}
+
+.containerAll .userCard {
+  float: left;
+  width: 50%;
+  padding: 20px;
+}
+
+.containerAll .userCard .ucContent {
+  float: left;
+  width: 100%;
+  border: 1px solid #ececec;
+  padding: 10px;
+  border-radius: 90px;
+}
+
+.containerAll .userCard .ucContent .userImage {
+  float: left;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #222;
+}
+
+.containerAll .userCard .ucContent .userImage img {
+  width: 100%;
+}
+
+.containerAll .userCard .ucContent .userInfo {
+  float: left;
+  width: calc(100% - 150px);
+  padding-left: 20px;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.containerAll .userCard .ucContent .userInfo .uName {
+  float: left;
+  width: 100%;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.containerAll .userCard .ucContent .userInfo .uCity {
+  float: left;
+  width: 100%;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.containerAll .userCard .ucContent .userInfo .uAge {
+  float: left;
+  width: 100%;
+  font-size: 18px;
+  color: #333;
+}
+
+.containerAll .userCard .ucContent:hover {
+  background-color: #ececec;
+}
+
+.containerAll .datepicker input {
+  background-color: #fff;
+}
+
+.containerAll .messageBtn {
+  width: 200px !important;
+}
+
+.containerAll .messageBtn svg {
+  width: 15px;
+  color: #fff;
+}
+
+.containerAll .messagesWrap {
+  float: left;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px 20px 0 20px;
+}
+
+.containerAll .messagesWrap ul {
+  float: left;
+  width: 100%;
+  padding: 20px 20px 20px 0;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.containerAll .messagesWrap ul li {
+  float: left;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+  color: #fff;
+  padding: 10px 20px;
+  width: 40%;
+  clear: both;
+  border-radius: 20px;
+}
+
+.containerAll .messagesWrap ul li span {
+  float: left;
+  font-size: 14px;
+}
+
+.containerAll .messagesWrap ul li .from {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.containerAll .messagesWrap ul li .msg {
+  padding-right: 10px;
+}
+
+.containerAll .messagesWrap ul li .time {
+  position: absolute;
+  left: 20px;
+  bottom: -17px;
+  font-size: 11px;
+  font-style: italic;
+  color: #666666;
+  display: none;
+}
+
+.containerAll .messagesWrap ul li:hover .time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.containerAll .messagesWrap ul li.sentMsg {
+  background-color: #1f84ff;
+  float: left;
+}
+
+.containerAll .messagesWrap ul li.receivedMsg {
+  background-color: #f1f0f0;
+  float: right;
+  color: #333;
+}
+
+.containerAll .messagesWrap .sendMessageLine {
+  float: left;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+  height: 70px;
+}
+
+.containerAll .messagesWrap .sendMessageLine .sendMessageInput {
+  float: left;
+  width: calc(100% - 100px);
+  background-color: #fff;
+  padding: 10px;
+  border: 0;
+  font-size: 16px;
+  height: 50px;
+  outline: 0;
+}
+
+.containerAll .messagesWrap .sendMessageLine .sendMessageBtn {
+  float: right;
+  width: 50px;
+  height: 50px;
+  background-color: #162f4a;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 50px;
+}
+
+.containerAll .messagesWrap .sendMessageLine .sendMessageBtn svg {
+  width: 15px;
+  color: #fff;
+}
+
+.containerAll .chatWithWho {
+  float: left;
+  width: 100%;
+}
+
+.containerAll .chatWithWho .chatCard {
+  float: left;
+  width: 50%;
+  padding: 20px 0;
+}
+
+.containerAll .chatWithWho .chatCard a {
+  float: left;
+  width: 100%;
+  color: #222;
+}
+
+.containerAll .chatWithWho .chatCard .ccImg {
+  float: left;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.containerAll .chatWithWho .chatCard .ccImg img {
+  width: 100%;
+}
+
+.containerAll .chatWithWho .chatCard .ccInfo {
+  float: left;
+  height: 100px;
+  width: calc(100% - 100px);
+  padding-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.containerAll .chatWithWho .chatCard .ccInfo span {
+  float: left;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.containerAll .uploadAccountPhotoWrap {
+  float: left;
+  width: 100%;
+}
+
+.containerAll .uploadAccountPhotoWrap .accountPhotos {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.containerAll .uploadAccountPhotoWrap .accountPhotos .accountUploaded {
+  float: left;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.containerAll .uploadAccountPhotoWrap .accountPhotos .imgsLine {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap {
+  float: left;
+  width: 33.3%;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap .imgContent {
+  float: left;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap .imgContent .removePhoto {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 0 10px 0 0;
+  background-color: #cc0000;
+  cursor: pointer;
+}
+
+.containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap img {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+.containerAll .uploadAccountPhotoWrap .uploadPhotosWrap {
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+
+.containerAll .uploadAccountPhotoWrap .uploadPhotosWrap .uploadBtn {
+  float: left;
+  width: 200px;
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+
+.containerAll .uploadAccountPhotoWrap .uploadPhotosWrap .uploadBtn .button {
+  margin-right: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.containerAll .uploadAccountPhotoWrap .uploadPhotosWrap .uploadBtn .savePhotoBtn {
+  margin-top: 20px;
+  background-color: #162f4a;
+}
+
+.containerAll .uploadAccountPhotoWrap .uploadPhotosWrap .uploadPreviewPhoto {
+  float: left;
+  width: calc(100% - 300px);
+  margin-bottom: 20px;
+}
+
+.containerAll .uploadAccountPhotoWrap .uploadPhotosWrap .uploadPreviewPhoto img {
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.containerAll .vdp-datepicker__calendar {
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border: 0;
+  color: #222;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.containerAll .vdp-datepicker__calendar header {
+  height: 40px;
+}
+
+.containerAll .vdp-datepicker__calendar header .prev:not(.disabled):hover, .containerAll .vdp-datepicker__calendar header .next:not(.disabled):hover, .containerAll .vdp-datepicker__calendar header .up:not(.disabled):hover {
+  background: transparent !important;
+}
+
+.containerAll .vdp-datepicker__calendar header .prev:after {
+  border-right: 10px solid #fff;
+}
+
+.containerAll .vdp-datepicker__calendar header .next:after {
+  border-left: 10px solid #fff;
+}
+
+.containerAll .vdp-datepicker__calendar .cell {
+  font-weight: 300;
+}
+
+.containerAll .vdp-datepicker__calendar .cell.today {
+  border: 1px solid #197bff;
+}
+
+.containerAll .vdp-datepicker__calendar .cell.selected {
+  background: #162f4a;
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  .containerAll .container {
+    padding: 20px;
+  }
+  .containerAll .profileWrap .profileInfoHead {
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+  }
+  .containerAll .profileWrap .profileInfoHead .profilPhoto {
+    margin-bottom: 10px;
+    width: 150px;
+    height: 150px;
+  }
+  .containerAll .profileWrap .profileInfoHead ul {
+    width: 100%;
+    height: auto;
+    padding-left: 0;
+  }
+  .containerAll .profileWrap .profileInfoHead ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .containerAll .profileWrap .firstInfoPhoto .addBioBtn svg {
+    width: 50px;
+  }
+  .containerAll .bottomBtns .saveBtn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .containerAll .bottomBtns .backToProfile {
+    width: 100%;
+    margin-right: 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .containerAll header .sideMenuOpenBtn {
+    display: block;
+  }
+  .containerAll header .headRight .headLinks {
+    display: none;
+  }
+  .containerAll header .headRight .headAccount {
+    display: none;
+  }
+  .containerAll .profileWrap .profileInfoHead ul li.fullName {
+    font-size: 26px;
+    margin-bottom: 5px;
+    line-height: 36px;
+  }
+  .containerAll .messagesWrap ul li {
+    width: 95%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-radius: 40px;
+  }
+  .containerAll .messagesWrap ul li .from {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+  .containerAll .messagesWrap ul li .msg {
+    width: 100%;
+  }
+  .containerAll .messagesWrap ul {
+    padding: 0;
+  }
+  .containerAll .messagesWrap {
+    padding: 10px;
+  }
+  .containerAll .profileWrap .profileDetail .textareaWrap textarea {
+    height: 200px;
+  }
+  .containerAll .userCard {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .containerAll .userCard .ucContent {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-radius: 0;
+    padding: 20px 0;
+  }
+  .containerAll .userCard .ucContent .userImage {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+  .containerAll .userCard .ucContent .userInfo {
+    width: 100%;
+    padding-left: 0;
+    height: auto;
+  }
+  .containerAll .userCard .ucContent .userInfo div {
+    text-align: center;
+    margin-bottom: 0 !important;
+  }
+  .containerAll .profileWrap .profileInfoHead ul li {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn a {
+    margin-bottom: 10px;
+  }
+  .containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .subList {
+    left: 0;
+    padding: 10px 0;
+    width: 200px;
+    background-color: #162f4a;
+    top: 30px;
+    border-radius: 0 10px 10px 10px;
+  }
+  .containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .subList li {
+    margin-bottom: 0;
+  }
+  .containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .subList li a {
+    margin-bottom: 0;
+    background-color: #162f4a;
+  }
+  .containerAll .chatWithWho .chatCard {
+    width: 100%;
+    padding: 0;
+    border-bottom: 1px solid #ececec;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  .containerAll .chatWithWho .chatCard:nth-last-child(1) {
+    border-bottom: 0;
+  }
+  .containerAll .welcomeForm {
+    background: transparent;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    color: #fff;
+  }
+  .containerAll .welcomeForm button {
+    width: 100%;
+  }
+  .containerAll header .headRightWelcome {
+    display: none;
+  }
+  .errorMsg {
+    background-color: #cc0000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .containerAll .welcomeForm input {
+    height: 40px;
+    margin-bottom: 15px;
+  }
+  .containerAll .profileWrap .profileDetail .pdLine .uiLineLeft {
+    width: 130px;
+  }
+  .containerAll .profileWrap .profileDetail .pdLine .uiLineRight {
+    width: calc(100% - 130px);
+  }
+  .containerAll .welcomeForm .mobileWelcomeBottom span {
+    color: #fff;
+  }
+  .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap {
+    width: 100%;
+    padding: 20px 0;
+  }
+  .containerAll .uploadAccountPhotoWrap .accountPhotos .imgsLine {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .containerAll .uploadAccountPhotoWrap .uploadBtn {
+    width: 100%;
+    padding-right: 0;
+  }
+  .containerAll .uploadAccountPhotoWrap .uploadPreviewPhoto {
+    width: 100%;
+  }
+  .containerAll .uploadAccountPhotoWrap .uploadPreviewPhoto img {
+    width: 100%;
+    max-width: 100%;
+  }
+  .containerAll .welcome .welcomeLine {
+    margin-bottom: 10px;
+  }
+  .containerAll .welcome .welcomeLine span:nth-child(1) {
+    font-size: 20px;
+    line-height: 26px;
+    padding: 0 10px;
+  }
+  .containerAll .welcome .welcomeLine span:nth-child(2) {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  .containerAll .welcome .welcomeForm {
+    background: transparent;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .containerAll .welcome .welcomeForm .formW100 input {
+    margin-bottom: 0;
+  }
+  .containerAll .welcome .welcomeForm .formW100 {
+    margin-bottom: 10px;
+  }
+  .containerAll .welcome .welcomeForm .formW50 .form-radio label {
+    color: #fff;
+  }
+  .containerAll .welcome .welcomeForm .formW50 .form-radio .radio label:hover .helper {
+    color: #fff;
+  }
+  .containerAll .welcome .welcomeForm .formW50 .form-radio .radio input:checked ~ .helper::before {
+    color: #fff;
+  }
+  .containerAll .welcome .welcomeForm .formW50 .form-radio .radio input:checked ~ .helper::after {
+    background-color: #fff;
+    border-color: #fff;
+  }
+  .containerAll .welcome .welcomeForm .gender .radio {
+    margin-bottom: 0;
+  }
+  .containerAll .messagesWrap .sendMessageLine {
+    height: 50px;
+  }
+  .containerAll .messagesWrap .sendMessageLine .sendMessageBtn {
+    width: 40px;
+    height: 40px;
+  }
+  .containerAll .messagesWrap .sendMessageLine .sendMessageInput {
+    height: 40px;
+    padding: 0 10px;
+  }
+}

@@ -1,0 +1,357 @@
+$fontStack : 'Nunito', sans-serif;
+$fontLogo : 'MuseoModerno', cursive;;
+$color1: #333;
+$color2: #666666;
+$color3: #0b4aa0;
+$colorSuccess: #28a745;  
+$colorError: #cc0000;
+$linkColor: #007bff;
+$linkColorHover: #162f4a;
+$box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+
+strong{font-weight: 600;}
+a{text-decoration: none; color:$linkColor;
+  &:hover{text-decoration:none;}
+}
+* {box-sizing: border-box; transition: all .3s ease; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+::after, ::before {box-sizing: border-box;}
+body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1; text-align: left; background-color: #e9ebee;}
+
+.button, button{display:flex; align-items:center; justify-content:center; padding:10px 20px; color:#fff; border-radius:5px; margin-right:10px; font-weight:600; border:0; outline:0; cursor:pointer; height:40px; font-size:14px;
+  &:nth-last-child(1){margin-right:0;}
+  svg{width:20px; margin-left:10px;}
+  &:hover{background-color:$linkColorHover;}
+}
+.primaryBtn{background-color: #007bff;}
+.errorBtn{background-color:$colorError;}
+.secondaryBtn{background-color: #6c757d;}
+.errorMsg{float:left; width:100%; color:$colorError; font-size:16px; padding:10px 0;}
+
+.modalWrap{position: fixed; width:100%; height:100%; left:0; right:0; bottom:0; top:0; background:rgba(0,0,0,0.8); display:flex; align-items: center; justify-content: center; z-index:10;
+  .modalContent{width:600px; background-color:#fff; position: relative; border-radius: 10px;
+    .modalCloseBtn{position: absolute; right:15px; top: -40px; cursor: pointer; width: 40px; height: 40px; background: $linkColor; display: flex; align-items: center; justify-content: center;
+      svg{width:20px; color:#fff;}
+    }
+    .modalHead{float:left; width:100%; font-weight: 600; font-size: 20px; display: flex; align-items: center; justify-content: center; text-align: center; padding:0 30px;
+      .mHeadline{padding:20px 0;}
+    }
+    .modalMiddle{float:left; width:100%; display: flex; align-items: center; justify-content: center; padding:0 30px;
+      .btnsWrap{float:left; width:100%; display: flex; align-items: center; justify-content: center; margin-bottom:20px;}
+    }
+    .showBigPPModal{float:left; width:100%;
+      img{width:100%; display:block; border-radius:10px;}
+    }
+  }
+}
+
+.containerAll{float:left; width:100%;
+  header{float:left; width:100%; background-color:$color3; height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 30px; color:#fff;
+    .headLeft{display:flex; align-items:center; justify-content:space-between;
+      .logo{color:#fff; font-weight:600; font-family:$fontLogo; font-size:26px;}
+    }
+    .headRightWelcome{display:flex; align-items:center; justify-content:space-between;
+      .loginBtn{background:transparent; border:1px solid #fff;
+        &:hover{background-color:#fff; color:$linkColor;}
+      }
+      .registerBtn{background:$linkColor; border:1px solid $linkColor;
+        &:hover{background-color:$linkColorHover; border:1px solid $linkColorHover;}
+      }
+    }
+    .headRight{display:flex; align-items:center; justify-content:space-between; height: 60px;
+      .headLinks{float:left; white-space: nowrap; height:60px; display:flex; align-items:center; padding:0 20px;
+        a{color:#fff; padding:0 20px; font-weight:600; display:flex; align-items:center; cursor:pointer;
+          svg{width:7px; margin-right:5px;}
+        }
+      }
+      .headAccount{float:left; white-space: nowrap; height:60px; display:flex; align-items:center; border-left:1px solid #5577a7; padding-left:20px;
+        a{display:flex; align-items:center; justify-content:center; cursor:pointer;}
+        img{width:45px; height:45px; overflow: hidden; border-radius:50%;}
+        span{float:left; width:calc(100% - 50px); padding-right:20px; color:#fff; font-size:16px; text-align:right; font-weight:600;}
+      }
+    }
+    .sideMenuOpenBtn{float:left; cursor:pointer; height: 34px; display:none;
+      svg{width:30px; color:#fff;}
+    }
+    .sideMenu{position:fixed; right:0; top:0; bottom:0; width:100%; z-index:9; display:flex; justify-content: flex-end;
+      .sideMenuCloseBtn{position:absolute; right:10px; top:10px; cursor:pointer; z-index: 3;
+        svg{width:25px; color:#fff;}
+      }
+      .sideMenuContent{float:left; width: 300px; z-index:2; background-color:#162f4a; padding:50px 30px;
+        ul{float:left; width:100%;
+          li{float:left; width: 100%;
+            button{float:left; width: 100%; border-radius:0; justify-content: flex-start; background: transparent; border-bottom: 1px solid #203f69; padding: 30px 0;
+              svg{width:5px; color:#fff; margin-right:10px;}
+              &:hover{background-color:#fff; color:$linkColor;}
+            }
+          }
+        }
+        .accountInfo{
+          a{float:left; width:100%; display:flex; align-items: center; border-bottom:1px solid $color3; padding-bottom:20px;
+            img{width:50px; border-radius:50%; overflow:hidden;}
+            span{float:left; width:calc(100% - 50px); padding-left:10px; color:#fff; font-size:18px; font-weight:600;}
+          }
+        }
+      }
+      .sideMenuOverlay{position:absolute; left:0; top:0; right:0; bottom:0; width:100%; height:100%; background:rgba(0,0,0,0.1); z-index: 1;}
+    }
+  }
+  .container{max-width:1140px; width:100%; min-height:calc(100vh - 60px); padding:30px 50px; margin:0 auto; background-color:#fff; display: flex; flex-direction: column;}
+  .headline{float:left; width:100%; margin-bottom:20px; font-size: 20px; font-weight:600; border-bottom: 1px solid #ddd; padding-bottom: 10px; display:flex; align-items:center;
+    svg{width:25px; margin-right:10px;}
+  }
+  .welcome{display:flex; align-items:center; justify-content:center; background:url(../images/bg.jpeg) center center no-repeat; width:100%; min-height:calc(100vh - 60px); position:relative; flex-direction:column;
+    .overlayBg{position:absolute; left:0; top:0; right:0; bottom:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1;}
+    .welcomeForm{max-width:500px; width:100%; background-color:#fff; border-radius:10px; padding:30px; box-shadow:$box-shadow; z-index:2;
+      .formHead{float:left; width:100%; margin-bottom:10px; font-size:20px; font-weight:600; display: flex; align-items: center;
+        svg{width:20px; margin-right:10px;}
+      }
+      button{width:100%;}
+      .formW100{float:left; width:100%; margin-bottom:20px;
+        input{float:left; width:100%; padding:10px; height:40px; border:1px solid #ddd; border-radius:5px;}
+      }
+      .formW50{float:left; width:48%;
+        &:nth-child(1){margin-right:2%;}
+        &:nth-child(2){margin-left:2%;}
+      }
+      .gender{
+        .radio{float:left; margin-right:20px;}
+      }
+      .inputHead{float:left; width:100%; margin-bottom:5px; font-weight:600;}
+    }
+    .welcomeBottom{float:left; width:100%; margin-top:50px; max-width: 300px; z-index:2;
+      span{float:left; width:100%; font-size:16px; line-height:20px; color:#fff; margin-bottom:10px; text-align: center; font-weight:600;}
+      .bottomBtn{float:left; width:100%; background:transparent; border:1px solid #fff; color:#fff; text-align:center;
+        &:hover{background-color:$color3; border:1px solid $color3;}
+      }
+    }
+    .welcomeLine{float:left; width:100%; color:#fff; margin-bottom:50px; text-align:center; z-index:2; font-weight:600;
+      span{float:left; width:100%;
+        &:nth-child(1){font-size:40px; line-height:50px; text-shadow: 1px 1px 20px #a79a9a;}
+        &:nth-child(2){font-size:20px;}
+      }
+    }
+  }
+  .uploadPPInput{display:none;}
+  .emailVerified{padding:20px 0; font-weight:600; font-size:20px;}
+  .profileWrap{float:left; width:100%;
+    .headline{float:left; width:100%; margin-bottom:20px; font-weight:600; font-size:20px;}
+    .profileInfoHead{float:left; width:100%; margin-bottom:30px;
+      .profilPhoto{width:250px; height:250px; overflow:hidden; border-radius:50%; background-color:#222; border:2px solid #fff; display:flex; align-items:center; justify-content:center; flex-direction: column; position:relative; float:left;
+        img{width:100%; cursor:pointer;}
+      }
+      ul{float:left; width:calc(100% - 250px); padding-left:20px; height: 250px; display: flex; justify-content: center; flex-direction: column;
+        li{float:left; width:100%; font-size:16px; margin-bottom:10px; display:flex;
+          &.fullName{font-size:40px; font-weight:600; line-height: 40px; margin-bottom:10px;}
+          &.email{font-size:18px; font-weight:400; letter-spacing:1px;}
+          &.complateProfileBtn{
+            a{font-size: 16px; font-weight: 600; display: flex; padding: 5px 20px; justify-content: space-between; align-items: center; color: #fff; border-radius:5px; background-color: $color3; margin-right:10px; height:34px;
+              svg{width:20px; margin-left:20px;}
+              &.primaryBtn{background-color:$linkColor;}
+              &:hover{background-color:$linkColorHover;}
+            }
+            .userPageMenu{position:relative;
+              .userPageMenuBtn{width:35px; padding:6px; justify-content: center; cursor: pointer; margin-right:0; height:34px;
+                svg{width:20px; margin-left: 0;}
+              }
+              .subList{position: absolute; top: 34px; right: 0; background-color: #fff; width: 150px; padding:10px 0; height: auto; display:none;
+                li{float:left; width:100%;
+                  a{font-size:14px; margin-right:0; cursor:pointer; width:100%;}
+                }
+              }
+              &:hover{
+                .subList{display:flex;}
+              }
+            }
+            &.friendMessage{
+              a{background-color:$color3;}
+            }
+          }
+          .removePphoto{cursor:pointer;}
+        }
+      }
+    }
+    .firstInfoPhoto{float:left; width:100%;
+      img{width:100%;}
+      .addBioBtn{float:left; padding:10px 20px; font-size:16px; font-weight:600; background-color:$colorError; color:#fff; margin-bottom:20px; display: flex; align-items: center; justify-content: center; text-decoration:underline;
+        svg{width:20px; margin-right:10px;}
+      }
+    }
+    .profileDetail{float:left; width:100%; margin-bottom:40px;
+      .textareaWrap{float:left; width:100%; 
+        textarea{float:left; width:100%; height:125px; resize: none; padding:15px; font-size:16px; border:1px solid #ececec; background-color:#fff; color:$color1; font-family:$fontStack}
+      }
+      .accountTypeSelect{float:left; width:100%; margin-bottom:10px;
+        .radio{float:left; margin-right:20px;}
+      }
+      .pdLine{float:left; width:100%; border-bottom:1px solid #ececec; line-height:18px; display:flex; align-items:center; justify-content: flex-start; margin-bottom:20px; padding-bottom:20px;
+        .pdHead{float:left; width:100%; font-size:20px; line-height: 20px; font-weight:600; margin-bottom:10px;} 
+        .uiLineLeft{float:left; width:200px; padding:0 20px 0 0; font-size:16px; font-weight:600; height:60px; display:flex; align-items:center; justify-content:flex-start; }
+        .uiLineRight{float:left; width:calc(100% - 200px); font-size:18px; display:flex; align-items:center; justify-content:flex-start; height:60px;
+          input{outline:0; padding:5px 10px 5px 0; width:100%; font-family: $fontStack; border:0; font-size:18px;}
+        }
+        &.textarea{flex-direction:column; border-bottom:0;}
+        &.longMB{margin-bottom:40px;}
+      }
+      
+    }
+  }
+  .notify{float:left; width:100%; height:50px; z-index:1; border-radius:5px; margin-bottom:15px; display:flex; align-items:center; padding:0 20px;
+    span{font-size:16px; font-weight:600; color:#fff; padding-right:10px;}
+    svg{width:20px; color:#fff;}
+    &.success{background-color:$colorSuccess;}
+    &.error{background-color:$colorError;}
+  }
+  .bottomBtns{float:left; width:100%; margin-bottom:20px;
+    .saveBtn{font-size:18px; float: left; width: 150px;
+      svg{width:15px; margin-left:20px;}
+    }
+    .backToProfile{float:left; margin-right:10px; justify-content: space-between; font-size:18px;
+      svg{width:15px; margin-left:20px;}
+    }
+  }
+  .usersWrap{float:let; width:100%;}
+  .userCard{float:left; width:50%; padding:20px;
+    .ucContent{float:left; width:100%; border:1px solid #ececec; padding:10px; border-radius: 90px;;
+      .userImage{float:left; width:150px; height:150px; overflow:hidden; border-radius:50%; background-color:#222;
+        img{width:100%;}
+      }
+      .userInfo{float:left; width:calc(100% - 150px); padding-left:20px; height:150px; display:flex; align-items:center; justify-content:center; flex-direction:column;
+        .uName{float:left; width:100%; font-size:22px; font-weight:600; margin-bottom:10px; color:$color1;}
+        .uCity{float:left; width:100%; font-size:18px; color:$color1; margin-bottom:10px;}
+        .uAge{float:left; width:100%; font-size:18px; color:$color1;}
+      }
+      &:hover{background-color:#ececec;}
+    }
+  }
+  .datepicker{
+    input{background-color:#fff;}
+  }
+  .messageBtn{width:200px!important;
+    svg{width:15px; color:#fff;}
+  }
+  .messagesWrap{float:left; width:100%; background-color:#fff; border:1px solid #ddd; padding:20px 20px 0 20px;
+    ul{float:left; width:100%; padding:20px 20px 20px 0; height:500px; overflow-y:scroll;
+      li{float:left; width:100%; display: flex; align-items: center; position:relative; margin-bottom: 20px; color:#fff; padding: 10px 20px; width: 40%; clear: both; border-radius: 20px;
+        span{float:left; font-size:14px;}
+        .from{font-weight:bold; padding-right:10px;}
+        .msg{padding-right:10px;}
+        .time{position:absolute; left:20px; bottom:-17px; font-size:11px; font-style: italic; color:$color2; display:none;}
+        &:hover{
+          .time{display:flex;}
+        }
+        &.sentMsg{background-color:#1f84ff; float:left;}
+        &.receivedMsg{background-color:#f1f0f0; float:right; color:#333}
+      }
+    }
+    .sendMessageLine{float:left; width:100%; border-top:1px solid #ddd; padding:10px 0; height:70px;
+      .sendMessageInput{float:left; width:calc(100% - 100px); background-color:#fff; padding:10px; border:0; font-size:16px; height:50px; outline:0;}
+      .sendMessageBtn{float:right; width:50px; height:50px; background-color:$linkColorHover; color:#fff; display:flex; align-items: center; justify-content: center; cursor:pointer; font-weight:600; border-radius: 50px;
+        svg{width:15px; color:#fff;}
+      }
+    }
+  }
+  .chatWithWho{float:left; width:100%;
+    .chatCard{float:left; width:50%; padding:20px 0;
+      a{float:left; width:100%; color:#222;}
+      .ccImg{float:left; width:100px; height:100px; border-radius:50%; overflow:hidden;
+        img{width:100%;}
+      }
+      .ccInfo{float:left; height:100px; width:calc(100% - 100px); padding-left:20px; display:flex; align-items: flex-start; justify-content: center; flex-direction:column;
+        span{float:left; width:100%; font-size:20px; font-weight:600; margin-bottom:5px;}
+      }
+    }
+  }
+  .uploadAccountPhotoWrap{float:left; width:100%;
+    .accountPhotos{float:left; width:100%; margin-bottom:20px;
+      .accountUploaded{float:left; width:100%; font-size:20px; font-weight:600;}
+      .imgsLine{margin-left:-20px; margin-right:-20px;}
+      .imgWrap{float:left; width:33.3%; padding:20px; overflow: hidden; 
+        .imgContent{float:left; width:100%; display: flex; align-items: center; justify-content: center; height: 250px; border-radius:10px; overflow: hidden; position:relative;
+          .removePhoto{position: absolute; bottom: 0px; left: 0; color: #fff; padding: 5px 10px; font-size: 14px; font-weight: 600; border-radius: 0 10px 0 0; background-color:$colorError; cursor:pointer;}
+        }
+        img{width:100%; display:block; cursor:pointer;}
+      }
+    }
+    .uploadPhotosWrap{float:left; width:100%; border-bottom: 1px solid #ddd; padding-bottom: 0; margin-bottom:20px;
+      .uploadBtn{float:left; width:200px; margin-bottom:20px; padding-right:20px;;
+        .button{margin-right:0; justify-content: space-between;}
+        .savePhotoBtn{margin-top:20px; background-color: $linkColorHover;}
+      }
+      .uploadPreviewPhoto{float:left; width:calc(100% - 300px); margin-bottom:20px;
+        img{max-width:300px; border-radius:10px;}
+      }
+    }
+  }
+  .vdp-datepicker__calendar{box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); border: 0; color: #222; position: fixed; left: 0; top: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: flex-start; flex-direction: column;
+    header{height:40px;}
+  }
+  .vdp-datepicker__calendar header .prev:not(.disabled):hover, .vdp-datepicker__calendar header .next:not(.disabled):hover, .vdp-datepicker__calendar header .up:not(.disabled):hover{background:transparent!important}
+  .vdp-datepicker__calendar header .prev:after{border-right: 10px solid #fff;}
+  .vdp-datepicker__calendar header .next:after{border-left: 10px solid #fff;}
+  .vdp-datepicker__calendar .cell{font-weight: 300;
+    &.today{border:1px solid #197bff;}
+    &.selected{background:$linkColorHover; color: #fff;}
+  }
+}
+
+@media (max-width: 767px) {
+  .containerAll .container{padding:20px;}
+  .containerAll .profileWrap .profileInfoHead {text-align: center; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative;}
+  .containerAll .profileWrap .profileInfoHead .profilPhoto{margin-bottom:10px; width:150px; height:150px;}
+  .containerAll .profileWrap .profileInfoHead ul{width:100%; height:auto; padding-left:0;}
+  .containerAll .profileWrap .profileInfoHead ul li{display: flex; align-items: center; justify-content: center;}
+  .containerAll .profileWrap .firstInfoPhoto .addBioBtn svg{width:50px;}
+  .containerAll .bottomBtns .saveBtn{width:100%; margin-bottom:10px;}
+  .containerAll .bottomBtns .backToProfile{width:100%; margin-right:0; justify-content: center;}
+  .containerAll header .sideMenuOpenBtn{display:block;}
+  .containerAll header .headRight .headLinks{display:none;}
+  .containerAll header .headRight .headAccount{display:none;}
+  .containerAll .profileWrap .profileInfoHead ul li.fullName{font-size:26px; margin-bottom: 5px; line-height: 36px;}
+  .containerAll .messagesWrap ul li{width:95%; flex-direction: column; border-radius:40px;}
+  .containerAll .messagesWrap ul li .from{width:100%; margin-bottom:0px;}
+  .containerAll .messagesWrap ul li .msg{width:100%;}
+  .containerAll .messagesWrap ul{padding:0;}
+  .containerAll .messagesWrap{padding:10px;}
+  .containerAll .profileWrap .profileDetail .textareaWrap textarea{height:200px;}
+  .containerAll .userCard{width:100%; padding:0; margin-bottom:20px;}
+  .containerAll .userCard .ucContent{display:flex; align-items:center; justify-content: flex-start; flex-direction:column; border-radius:0; padding:20px 0;}
+  .containerAll .userCard .ucContent .userImage{width:150px; height:150px; margin-bottom:10px;}
+  .containerAll .userCard .ucContent .userInfo{width:100%; padding-left:0; height:auto;}
+  .containerAll .userCard .ucContent .userInfo div{text-align: center; margin-bottom:0!important;}
+  .containerAll .profileWrap .profileInfoHead ul li{flex-direction:column;}
+  .containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn a{margin-bottom:10px;}
+  .containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu{position:absolute; left:0; top:0;}
+  .containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .subList{left: 0; padding:10px 0; width: 200px; background-color: #162f4a; top: 30px; border-radius:0 10px 10px 10px;}
+  .containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .subList li{margin-bottom:0;}
+  .containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .subList li a{margin-bottom:0; background-color:#162f4a;}
+  .containerAll .chatWithWho .chatCard{width:100%; padding:0; border-bottom:1px solid #ececec; padding-bottom:20px; margin-bottom:20px;
+    &:nth-last-child(1){border-bottom:0;}
+  }
+  .containerAll .welcomeForm{background: transparent; box-shadow: none; color: #fff;}
+  .containerAll .welcomeForm button{width:100%;}
+  .containerAll header .headRightWelcome{display:none;}
+  .errorMsg{background-color:$colorError; color:#fff; padding:10px; border-radius:10px; text-align: center; margin-bottom:10px;}
+  .containerAll .welcomeForm input{height:40px; margin-bottom:15px;}
+  .containerAll .profileWrap .profileDetail .pdLine .uiLineLeft{width:130px;}
+  .containerAll .profileWrap .profileDetail .pdLine .uiLineRight{width:calc(100% - 130px);}
+  .containerAll .welcomeForm .mobileWelcomeBottom span{color:#fff;}
+  .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap{width:100%; padding: 20px 0;}
+  .containerAll .uploadAccountPhotoWrap .accountPhotos .imgsLine{margin-left:0; margin-right:0;}
+  .containerAll .uploadAccountPhotoWrap .uploadBtn{width:100%; padding-right:0;}
+  .containerAll .uploadAccountPhotoWrap .uploadPreviewPhoto{width:100%;}
+  .containerAll .uploadAccountPhotoWrap .uploadPreviewPhoto img{width:100%; max-width:100%;}
+  .containerAll .welcome .welcomeLine{margin-bottom:10px;}
+  .containerAll .welcome .welcomeLine span:nth-child(1){font-size:20px; line-height:26px; padding:0 10px;}
+  .containerAll .welcome .welcomeLine span:nth-child(2){font-size:14px; padding:0 10px;}
+  .containerAll .welcome .welcomeForm{background:transparent; box-shadow:none;}
+  .containerAll .welcome .welcomeForm .formW100 input{margin-bottom:0;}
+  .containerAll .welcome .welcomeForm .formW100{margin-bottom:10px;}
+  .containerAll .welcome .welcomeForm .formW50 .form-radio label{color:#fff;}
+  .containerAll .welcome .welcomeForm .formW50 .form-radio .radio label:hover .helper{color:#fff;}
+  .containerAll .welcome .welcomeForm .formW50 .form-radio .radio input:checked ~ .helper::before{color:#fff;}
+  .containerAll .welcome .welcomeForm .formW50 .form-radio .radio input:checked ~ .helper::after{background-color:#fff; border-color:#fff;}
+  .containerAll .welcome .welcomeForm .gender .radio{margin-bottom:0}
+  .containerAll .messagesWrap .sendMessageLine{height:50px;}
+  .containerAll .messagesWrap .sendMessageLine .sendMessageBtn{width: 40px; height: 40px;}
+  .containerAll .messagesWrap .sendMessageLine .sendMessageInput{height:40px; padding:0 10px;}
+}
