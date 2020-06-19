@@ -1,7 +1,9 @@
 # privateProfile
 
-> Private profile
-Create account, sign in, create profile, create photo gallery, list users, message with other users..
+### Create account, sign in, create profile, create photo gallery, list users, message with other users..
+### VueJs, NuxtJs, Firebase, Google App Engine
+
+## Demo: https://privatefriend.ew.r.appspot.com/
 
 ## Build Setup
 
