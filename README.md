@@ -1,6 +1,7 @@
 # privateProfile
 
 > Private profile
+Create account, sign in, create profile, create photo gallery, list users, message with other users..
 
 ## Build Setup
 
