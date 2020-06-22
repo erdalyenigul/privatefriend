@@ -16,7 +16,7 @@
     <div class="uploadAccountPhotoWrap">
       <div class="accountPhotos">
         <div class="accountUploaded" v-if="accountPhotos.length > 0">Fotoğraf albümü</div>
-        <div class="accountUploaded" v-if="accountPhotos.length == 0">Fotoğraf albümünuz boş, lütfen fotoğraf yükleyin.</div>
+        <div class="accountUploaded" v-if="accountPhotos.length == 0">Fotoğraf albümü boş.</div>
         <div class="imgsLine">
           <div class="imgWrap" v-for="photo in accountPhotos">
             <div class="imgContent">

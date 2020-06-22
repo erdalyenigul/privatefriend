@@ -37,9 +37,12 @@
             </span>
           </div>
         </span>
-        <span class="formW100">
-          <span class="formW50"><input required type="password" placeholder="Şifre" v-model="account.password" /></span>
-          <span class="formW50"><input required type="password" placeholder="Şifre tekrar" v-model="passwordAgain" /></span>
+        <span class="formW100 passWrap">
+          <a class="showPassRegister" @click="showPass"><font-awesome-icon icon="eye" /> Şifreyi göster</a>
+          <span class="formW100">
+            <span class="formW50"><input id="password" required type="password" placeholder="Şifre" v-model="account.password" /></span>
+            <span class="formW50"><input id="rePassword" required type="password" placeholder="Şifre tekrar" v-model="passwordAgain" /></span>
+          </span>
         </span>
         <span class="formW100">
           <span class="formW50"><div v-if="errorPass" class="errorMsg">Şifreler aynı olmalı!</div></span>
@@ -62,6 +65,8 @@ import firebase from 'firebase/app';
 export default {
   data() {
     return {
+      chatList: [],
+      notificationList: [],
       account: {
         pPhoto: '',
         name: '',
@@ -88,12 +93,25 @@ export default {
       errorPass: '',
       errorServer: false,
       errorServerMsg: '',
+      showPassToggle: false,
     }
   },
   created() {
         
   },
   methods: {
+    showPass() {
+      this.showPassToggle = !this.showPassToggle;
+      var pass = document.querySelector("#password");
+      var repass = document.querySelector("#rePassword");
+      if(this.showPassToggle) {
+        pass.type = "text";
+        repass.type = "text";
+      } else {
+        pass.type = "password";
+        repass.type = "password";
+      }
+    },
     register() {
       let birthdayLongDate = new Date(this.account.person.birthday);
       this.account.person.birthday = birthdayLongDate.toLocaleDateString("tr-TR");
@@ -130,10 +148,11 @@ export default {
       let self = this;
       firebase.auth().onAuthStateChanged(user => {
         if (user) {
-          console.log(user.uid);
           localStorage.setItem('uid', user.uid);
           firebase.firestore().collection('profiles').doc(user.uid).set({
             account: self.account,
+            chatList: self.chatList,
+            notificationList: self.notificationList,
             uid: user.uid,
           }).then(() => {
             self.$router.push('/account/profile');

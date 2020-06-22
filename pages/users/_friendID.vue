@@ -19,7 +19,7 @@
             <nuxt-link v-if="!admin" :to="{ name: 'users-messages-message', params: {message: account.uid} }" class="primaryBtn messageBtn">
               Mesaj gönder <font-awesome-icon icon="envelope" />
             </nuxt-link>
-            <nuxt-link :to="{ name: 'users-friendPhotos', params: {friendPhotos: account.uid} }" class="primaryBtn messageBtn">
+            <nuxt-link :to="{ name: 'users-photos-friendPhotos', params: {friendPhotos: account.uid} }" class="primaryBtn messageBtn">
               Fotoğraflar <font-awesome-icon icon="image" />
             </nuxt-link>
           </li>
@@ -38,13 +38,7 @@
         </div>
         <div class="pdLine">
           <div class="uiLineLeft">Doğum tarihi</div>
-          <div class="uiLineRight">
-            <div class="dateInput datepicker">
-              <client-only>
-                <date-picker disabled placeholder="GG/AA/YYYY" format="dd-MM-yyyy" v-model="account.account.person.birthday" />
-              </client-only>
-            </div>
-          </div>
+          <div class="uiLineRight">{{ account.account.person.birthday }}</div>
         </div>
         <div class="pdLine">
           <div class="uiLineLeft">Yaş</div>
@@ -55,10 +49,12 @@
           <div class="uiLineRight">{{ account.account.person.city }}</div>
         </div>
         <div class="pdLine">
-          <div class="uiLineLeft">İş & Eğitim</div>
-          <div class="uiLineRight">
-            {{ account.account.other.job }} / {{ account.account.other.education }}
-          </div>
+          <div class="uiLineLeft">İş</div>
+          <div class="uiLineRight">{{ account.account.other.job }}</div>
+        </div>
+        <div class="pdLine">
+          <div class="uiLineLeft">Eğitim</div>
+          <div class="uiLineRight">{{ account.account.other.education }}</div>
         </div>
         <div class="pdLine longMB">
           <div class="uiLineLeft">Burç</div>

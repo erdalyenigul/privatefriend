@@ -15,14 +15,16 @@
     <div class="uploadAccountPhotoWrap">
       <div class="uploadPhotosWrap">
         <div class="uploadBtn">
-          <input type="file" ref="uploadPP" @change="previewPhoto($event)" class="uploadPPInput">
-          <a @click="$refs.uploadPP.click()" class="button primaryBtn">
-            Fotoğraf seç <font-awesome-icon icon="image" />
-          </a>
-          <a v-if="previewWrap" class="button primaryBtn savePhotoBtn" @click="updatePhoto">
-            Yükle <font-awesome-icon icon="cloud-upload-alt" />
-          </a>
+          <image-uploader class="imageUploaderWrap" outputFormat="blob" :maxWidth="512" :quality="0.7" :preview=false @input="setImage">
+            <label for="fileInput" class="button primaryBtn imageUploaderBtn" slot="upload-label">
+              <span class="upload-caption">{{
+                hasImage ? "Fotoğraf seç" : "Fotoğraf seç"
+              }}</span>
+              <font-awesome-icon icon="image" />
+            </label>
+          </image-uploader>
         </div>
+        <div v-if="loading" class="loadingBar"><img src="@/assets/images/loading.gif" alt=""> Fotoğraf yükleniyor, lütfen bekleyin...</div>
         <div class="uploadPreviewPhoto" v-if="previewWrap">
           <img :src="uploadPreviewPhoto" alt="">
         </div>
@@ -60,6 +62,11 @@ export default {
       accountPhotos: [],
       accountPhotoBigModal: false,
       accountPhotoBigUrl: false,
+      loading: false,
+      image: '',
+      hasImage: '',
+      imageName: '',
+      inputWatch: '',
     }
   },
   asyncData({ req, redirect, route }) {
@@ -74,6 +81,12 @@ export default {
   },
   mounted() {
     this.userGetAccount();
+
+    const fileInput = document.querySelector('#fileInput');
+    fileInput.addEventListener('change', (event) => {
+      console.log('degisti');
+      this.loading = true;
+    });
   },
   methods: {
     async getPhotos() {
@@ -106,35 +119,35 @@ export default {
         }
       })
     },
-    previewPhoto(e) {
-      if(e.target.files[0]) {
-        this.previewWrap = true;
-        this.imageFile = e.target.files[0];
-        this.imageFileName = e.target.files[0].name;
-        this.uploadPreviewPhoto = URL.createObjectURL(this.imageFile);
-      }
+    setImage(blob) {
+      this.hasImage = true;
+      this.image = blob;
+      this.imageName = document.querySelector('#fileInput').value;
+      this.imageName = this.imageName.replace(/.*[\/\\]/, '');
+      this.updatePhoto();
     },
-    async updatePhoto(e) {
+    async updatePhoto() {
       var today = new Date();
       var date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
       var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       var dateTime = date + time;
 
       var self = this;
-      let storageRef = firebase.storage().ref(self.userId).child(self.imageFileName + dateTime)
-      let uploadTask = storageRef.put(this.imageFile);
-      await uploadTask.on("state_changed", snapshot => {
+      let storageRef = firebase.storage().ref(self.userId).child(self.imageName + dateTime)
+      let uploadTask = storageRef.put(this.image);
+      await uploadTask.then(function() {
         self.previewWrap = false;
-
+        document.querySelector('.imageUploaderWrap img').src = "";
         self.notify = true;
         self.notifyMsg = 'Fotoğraf başarıyla yüklendi';
         self.notifyIcon = 'check';
         setTimeout(() => {
           self.notify = false;
         }, 5000);
-
-        self.accountPhotos = [];
-        self.getPhotos(); 
+        self.image = false;
+        self.hasImage = false;
+        self.loading = false;
+        self.getPhotos();
       },error => {
         console.log(error.message);
       });

@@ -46,13 +46,7 @@
         </div>
         <div class="pdLine">
           <div class="uiLineLeft">Doğum tarihi</div>
-          <div class="uiLineRight">
-            <div class="dateInput datepicker">
-              <client-only>
-                <date-picker disabled placeholder="GG/AA/YYYY" format="dd-MM-yyyy" v-model="account.person.birthday" />
-              </client-only>
-            </div>
-          </div>
+          <div class="uiLineRight">{{ account.person.birthday }}</div>
         </div>
         <div class="pdLine">
           <div class="uiLineLeft">Yaş</div>

@@ -28,8 +28,8 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
 .errorMsg{float:left; width:100%; color:$colorError; font-size:16px; padding:10px 0;}
 
 .modalWrap{position: fixed; width:100%; height:100%; left:0; right:0; bottom:0; top:0; background:rgba(0,0,0,0.8); display:flex; align-items: center; justify-content: center; z-index:10;
-  .modalContent{width:600px; background-color:#fff; position: relative; border-radius: 10px;
-    .modalCloseBtn{position: absolute; right:15px; top: -40px; cursor: pointer; width: 40px; height: 40px; background: $linkColor; display: flex; align-items: center; justify-content: center;
+  .modalContent{max-width:600px; width:100%; background-color:#fff; position: relative; border-radius: 10px;
+    .modalCloseBtn{position: absolute; right:15px; top: 0; cursor: pointer; width: 40px; height: 40px; background: $linkColor; display: flex; align-items: center; justify-content: center;
       svg{width:20px; color:#fff;}
     }
     .modalHead{float:left; width:100%; font-weight: 600; font-size: 20px; display: flex; align-items: center; justify-content: center; text-align: center; padding:0 30px;
@@ -38,14 +38,14 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
     .modalMiddle{float:left; width:100%; display: flex; align-items: center; justify-content: center; padding:0 30px;
       .btnsWrap{float:left; width:100%; display: flex; align-items: center; justify-content: center; margin-bottom:20px;}
     }
-    .showBigPPModal{float:left; width:100%;
+    .showBigPPModal{float:left; width:100%; max-height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden;
       img{width:100%; display:block; border-radius:10px;}
     }
   }
 }
 
 .containerAll{float:left; width:100%;
-  header{float:left; width:100%; background-color:$color3; height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 30px; color:#fff;
+  header{float:left; width:100%; background-color:$color3; height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 30px; color:#fff; 
     .headLeft{display:flex; align-items:center; justify-content:space-between;
       .logo{color:#fff; font-weight:600; font-family:$fontLogo; font-size:26px;}
     }
@@ -62,18 +62,25 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
         a{color:#fff; padding:0 20px; font-weight:600; display:flex; align-items:center; cursor:pointer;
           svg{width:7px; margin-right:5px;}
         }
+        .notifyCounter{color: #222; background-color: #fff; border-radius: 3px; height: 20px; display: flex; align-items: center; justify-content: center; margin-left: 5px; padding: 0 5px;}
       }
       .headAccount{float:left; white-space: nowrap; height:60px; display:flex; align-items:center; border-left:1px solid #5577a7; padding-left:20px;
-        a{display:flex; align-items:center; justify-content:center; cursor:pointer;}
-        img{width:45px; height:45px; overflow: hidden; border-radius:50%;}
-        span{float:left; width:calc(100% - 50px); padding-right:20px; color:#fff; font-size:16px; text-align:right; font-weight:600;}
+        a{display:flex; align-items:center; justify-content:center; cursor:pointer; width:100%;}
+        .accountPP{width:45px; height:45px; overflow: hidden; border-radius:50%;
+          img{width:100%;}
+        }
+        .accountFullName{float:left; width:calc(100% - 50px); padding-right:20px; color:#fff; font-size:16px; text-align:right; font-weight:600;}
       }
     }
     .sideMenuOpenBtn{float:left; cursor:pointer; height: 34px; display:none;
       svg{width:30px; color:#fff;}
     }
+    .newMessageIcon{float:left; cursor:pointer; height: 34px; position:relative; margin-right:20px; display:none;
+      svg{width:30px; color:#fff; margin-top: 3px;}
+      .counter{position: absolute; left: 24px; top: -3px; font-size: 13px; font-weight: bold; display: flex; align-items: center; justify-content: center; width: 15px; background-color: #fa3e3e; border-radius: 2px; color: #fff; padding: 2px 3px 0; height: 25px;}
+    }
     .sideMenu{position:fixed; right:0; top:0; bottom:0; width:100%; z-index:9; display:flex; justify-content: flex-end;
-      .sideMenuCloseBtn{position:absolute; right:10px; top:10px; cursor:pointer; z-index: 3;
+      .sideMenuCloseBtn{position:absolute; right:30px; top:10px; cursor:pointer; z-index: 3;
         svg{width:25px; color:#fff;}
       }
       .sideMenuContent{float:left; width: 300px; z-index:2; background-color:#162f4a; padding:50px 30px;
@@ -83,11 +90,14 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
               svg{width:5px; color:#fff; margin-right:10px;}
               &:hover{background-color:#fff; color:$linkColor;}
             }
+            &.messageInfo{
+              span{color: #222; background-color: #fff; border-radius: 3px; height: 20px; display: flex; align-items: center; justify-content: center; margin-left: 5px; padding: 0 5px;}
+            }
           }
         }
         .accountInfo{
           a{float:left; width:100%; display:flex; align-items: center; border-bottom:1px solid $color3; padding-bottom:20px;
-            img{width:50px; border-radius:50%; overflow:hidden;}
+            img{width:50px; height:50px; object-fit:cover; border-radius:50%; overflow:hidden;}
             span{float:left; width:calc(100% - 50px); padding-left:10px; color:#fff; font-size:18px; font-weight:600;}
           }
         }
@@ -106,8 +116,14 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
         svg{width:20px; margin-right:10px;}
       }
       button{width:100%;}
-      .formW100{float:left; width:100%; margin-bottom:20px;
+      .formW100{float:left; width:100%; margin-bottom:20px; position:relative;
         input{float:left; width:100%; padding:10px; height:40px; border:1px solid #ddd; border-radius:5px;}
+        .showPassRegister{position: absolute; left:0; bottom: -13px; cursor:pointer; color:#222; display: flex; align-items: center; font-size:14px;
+          svg{width:20px; color: #696969; margin-right:5px;}
+        }
+        .showPassLogin{position: absolute; right:10px; top:10px; cursor:pointer; color:#222; display: flex; align-items: center; font-size:14px;
+          svg{width:20px; color: #696969; margin-right:5px;}
+        }
       }
       .formW50{float:left; width:48%;
         &:nth-child(1){margin-right:2%;}
@@ -184,7 +200,9 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
         .radio{float:left; margin-right:20px;}
       }
       .pdLine{float:left; width:100%; border-bottom:1px solid #ececec; line-height:18px; display:flex; align-items:center; justify-content: flex-start; margin-bottom:20px; padding-bottom:20px;
-        .pdHead{float:left; width:100%; font-size:20px; line-height: 20px; font-weight:600; margin-bottom:10px;} 
+        .pdHead{float:left; width:100%; font-size:20px; line-height: 20px; font-weight:600; margin-bottom:10px; display:flex; align-items: center;
+          span{font-size:12px; padding:0 10px; font-style:italic;}
+        } 
         .uiLineLeft{float:left; width:200px; padding:0 20px 0 0; font-size:16px; font-weight:600; height:60px; display:flex; align-items:center; justify-content:flex-start; }
         .uiLineRight{float:left; width:calc(100% - 200px); font-size:18px; display:flex; align-items:center; justify-content:flex-start; height:60px;
           input{outline:0; padding:5px 10px 5px 0; width:100%; font-family: $fontStack; border:0; font-size:18px;}
@@ -195,7 +213,7 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
       
     }
   }
-  .notify{float:left; width:100%; height:50px; z-index:1; border-radius:5px; margin-bottom:15px; display:flex; align-items:center; padding:0 20px;
+  .notify{float:left; width:100%; height:50px; z-index:1; margin-bottom:15px; display:flex; align-items:center; justify-content:center; padding:0 20px; position: fixed; top: 0; left: 0; right: 0;
     span{font-size:16px; font-weight:600; color:#fff; padding-right:10px;}
     svg{width:20px; color:#fff;}
     &.success{background-color:$colorSuccess;}
@@ -213,7 +231,7 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
   .userCard{float:left; width:50%; padding:20px;
     .ucContent{float:left; width:100%; border:1px solid #ececec; padding:10px; border-radius: 90px;;
       .userImage{float:left; width:150px; height:150px; overflow:hidden; border-radius:50%; background-color:#222;
-        img{width:100%;}
+        img{width:100%; height: 100%; object-fit:cover;}
       }
       .userInfo{float:left; width:calc(100% - 150px); padding-left:20px; height:150px; display:flex; align-items:center; justify-content:center; flex-direction:column;
         .uName{float:left; width:100%; font-size:22px; font-weight:600; margin-bottom:10px; color:$color1;}
@@ -258,18 +276,19 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
       }
       .ccInfo{float:left; height:100px; width:calc(100% - 100px); padding-left:20px; display:flex; align-items: flex-start; justify-content: center; flex-direction:column;
         span{float:left; width:100%; font-size:20px; font-weight:600; margin-bottom:5px;}
+        .newMessage{font-size: 13px; background-color: #cc0000; color: #fff; width: auto; padding: 0 10px; border-radius: 5px; display: flex; align-items: center; justify-content: center; height: 20px;}
       }
     }
   }
   .uploadAccountPhotoWrap{float:left; width:100%;
     .accountPhotos{float:left; width:100%; margin-bottom:20px;
       .accountUploaded{float:left; width:100%; font-size:20px; font-weight:600;}
-      .imgsLine{margin-left:-20px; margin-right:-20px;}
-      .imgWrap{float:left; width:33.3%; padding:20px; overflow: hidden; 
-        .imgContent{float:left; width:100%; display: flex; align-items: center; justify-content: center; height: 250px; border-radius:10px; overflow: hidden; position:relative;
-          .removePhoto{position: absolute; bottom: 0px; left: 0; color: #fff; padding: 5px 10px; font-size: 14px; font-weight: 600; border-radius: 0 10px 0 0; background-color:$colorError; cursor:pointer;}
+      .imgsLine{margin-left:-5px; margin-right:-5px;}
+      .imgWrap{float:left; width:33.3%; padding:5px; overflow: hidden; 
+        .imgContent{float:left; width:100%; display: flex; align-items: center; justify-content: center; height: 250px; overflow: hidden; position:relative;
+          .removePhoto{position: absolute; top: 0px; left: 0; color: #fff; padding: 5px 10px; font-size: 14px; font-weight: 600; background-color:$colorError; cursor:pointer;}
         }
-        img{width:100%; display:block; cursor:pointer;}
+        img{max-width:500px; max-height:500px; width: auto; height: auto; display:block; cursor:pointer;}
       }
     }
     .uploadPhotosWrap{float:left; width:100%; border-bottom: 1px solid #ddd; padding-bottom: 0; margin-bottom:20px;
@@ -277,12 +296,13 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
         .button{margin-right:0; justify-content: space-between;}
         .savePhotoBtn{margin-top:20px; background-color: $linkColorHover;}
       }
-      .uploadPreviewPhoto{float:left; width:calc(100% - 300px); margin-bottom:20px;
+      .uploadPreviewPhoto{float:left; width:100%; margin-bottom:20px;
         img{max-width:300px; border-radius:10px;}
       }
+      svg{width:20px;}
     }
   }
-  .vdp-datepicker__calendar{box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); border: 0; color: #222; position: fixed; left: 0; top: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: flex-start; flex-direction: column;
+  .vdp-datepicker__calendar{box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); border: 0; color: #222;
     header{height:40px;}
   }
   .vdp-datepicker__calendar header .prev:not(.disabled):hover, .vdp-datepicker__calendar header .next:not(.disabled):hover, .vdp-datepicker__calendar header .up:not(.disabled):hover{background:transparent!important}
@@ -292,6 +312,28 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
     &.today{border:1px solid #197bff;}
     &.selected{background:$linkColorHover; color: #fff;}
   }
+  footer{float:left; width:100%; padding:30px; background-color:#222; 
+    .footerContent{float:left; width:100%; display:flex; align-items: center; justify-content: center; flex-direction:column; color:#fff; font-size:14px;}
+    a{color:$linkColor;}
+  }
+  .loadingBar{float: left; width: 100%; margin-bottom: 20px; font-size: 16px; font-weight: 600; display: flex; align-items: center;
+    img{width:30px; margin-right:10px;}
+  }
+  .img-preview{float:left; width:100%; margin-bottom:10px;}
+  #fileInput{display:none;}
+  .imageUploaderBtn{height:34px; margin-right:10px; margin-bottom:10px;}
+  .imageUploaderWrap{
+    img{width:100%; max-width:400px;}
+  }
+}
+
+@media (max-width: 1023px) {
+  .containerAll header .sideMenuOpenBtn{display:block;}
+  .containerAll header .newMessageIcon{display:block;}
+  .containerAll header .headRight .headLinks{display:none;}
+  .containerAll header .headRight .headAccount{display:none;}
+  .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap .imgContent{height:200px;}
+  .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap img{max-width:300px; max-height:300px; width: auto; height: auto;}
 }
 
 @media (max-width: 767px) {
@@ -303,9 +345,6 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
   .containerAll .profileWrap .firstInfoPhoto .addBioBtn svg{width:50px;}
   .containerAll .bottomBtns .saveBtn{width:100%; margin-bottom:10px;}
   .containerAll .bottomBtns .backToProfile{width:100%; margin-right:0; justify-content: center;}
-  .containerAll header .sideMenuOpenBtn{display:block;}
-  .containerAll header .headRight .headLinks{display:none;}
-  .containerAll header .headRight .headAccount{display:none;}
   .containerAll .profileWrap .profileInfoHead ul li.fullName{font-size:26px; margin-bottom: 5px; line-height: 36px;}
   .containerAll .messagesWrap ul li{width:95%; flex-direction: column; border-radius:40px;}
   .containerAll .messagesWrap ul li .from{width:100%; margin-bottom:0px;}
@@ -335,7 +374,6 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
   .containerAll .profileWrap .profileDetail .pdLine .uiLineLeft{width:130px;}
   .containerAll .profileWrap .profileDetail .pdLine .uiLineRight{width:calc(100% - 130px);}
   .containerAll .welcomeForm .mobileWelcomeBottom span{color:#fff;}
-  .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap{width:100%; padding: 20px 0;}
   .containerAll .uploadAccountPhotoWrap .accountPhotos .imgsLine{margin-left:0; margin-right:0;}
   .containerAll .uploadAccountPhotoWrap .uploadBtn{width:100%; padding-right:0;}
   .containerAll .uploadAccountPhotoWrap .uploadPreviewPhoto{width:100%;}
@@ -354,4 +392,14 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
   .containerAll .messagesWrap .sendMessageLine{height:50px;}
   .containerAll .messagesWrap .sendMessageLine .sendMessageBtn{width: 40px; height: 40px;}
   .containerAll .messagesWrap .sendMessageLine .sendMessageInput{height:40px; padding:0 10px;}
+  .vdp-datepicker__calendar{box-shadow:none; border: 0; color: #222; position: fixed; left: 0; top: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: flex-start; flex-direction: column; background-color: #fff!important; width: 100%!important; position: fixed!important;
+    header{height:40px;}
+  }
+  .modalWrap .modalContent .showBigPPModal img{border-radius:0;}
+  .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap .imgContent{height:100px;}
+  .modalWrap .modalContent .showBigPPModal{max-height:auto;}
+  .containerAll .welcome .welcomeForm .formW100 .showPassRegister{color:#fff; font-weight:600; bottom:-16px;
+    svg{color:#fff;}
+  }
+  .containerAll .welcome .welcomeForm .passWrap{margin-bottom:20px;}
 }

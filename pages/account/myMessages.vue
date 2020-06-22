@@ -2,11 +2,13 @@
   <div class="container">
     <div v-if="setData" class="chatWithWho">
       <div class="headline"><font-awesome-icon icon="comment-dots" /> Mesaj kutusu</div>
+      <div v-if="!chatList">Mesaj kutunuz boş</div>
       <div class="chatCard" v-for="(person, index) in chatWithWho" :key="index">
         <nuxt-link :to="{ name: 'users-messages-message', params: { message: person.friendId} }">
-          <div class="ccImg"><img class="ccImg" :src="person.pPhoto" alt=""></div>
+          <div class="ccImg"><img :src="person.pPhoto" alt=""></div>
           <div class="ccInfo">
             <span>{{ person.name }} {{ person.surname }}</span>
+            <span class="newMessage" v-if="person.notify">Yeni mesaj</span>
             <button class="button primaryBtn">Mesaj gönder</button>
           </div>
         </nuxt-link>
@@ -25,6 +27,7 @@ export default {
       setData: false,
       chatList: [],
       chatWithWho: [],
+      notificationList: [],
     }
   },
   asyncData({ req, redirect, route }) {
@@ -57,31 +60,50 @@ export default {
             .then(querySnapshot => {
               querySnapshot.forEach(doc => {
                 self.chatList = doc.data().chatList;
+                self.notificationList = doc.data().notificationList;
               });
-
-              for(var i = 0; i < self.chatList.length; i++) {
-                firebase.firestore().collection("profiles").where("uid", "==", self.chatList[i]).get()
-                .then(querySnapshot => {
-                  querySnapshot.forEach(doc => {
-                    var item = {};
-                    item = {};
-                    item.name = doc.data().account.name;
-                    item.surname = doc.data().account.surname;
-                    item.pPhoto = doc.data().account.pPhoto;
-                    item.friendId = doc.data().uid;
-                    self.chatWithWho.push(item);
-                  });
-                });
-              }
+              self.checkMessages();
               self.setData = true;
             });
-
           } else {
             this.email_verified = true;
           }
         }
       });
     },
+    checkMessages() {
+      let self = this;
+      if(self.chatList){
+        var item = {};
+        for(var i = 0; i < self.chatList.length; i++) {
+          if ( Object.values(self.notificationList).includes(self.chatList[i]) ) {
+            firebase.firestore().collection("profiles").where("uid", "==", self.chatList[i]).onSnapshot((querySnapshot) => {
+              querySnapshot.forEach(doc => {
+                item = {};
+                item.name = doc.data().account.name;
+                item.surname = doc.data().account.surname;
+                item.pPhoto = doc.data().account.pPhoto;
+                item.friendId = doc.data().uid;
+                item.notify = 'yeni mesaj';
+                self.chatWithWho.push(item);
+              });
+            });
+          } else {
+            firebase.firestore().collection("profiles").where("uid", "==", self.chatList[i]).onSnapshot((querySnapshot) => {
+              querySnapshot.forEach(doc => {
+                item = {};
+                item.name = doc.data().account.name;
+                item.surname = doc.data().account.surname;
+                item.pPhoto = doc.data().account.pPhoto;
+                item.friendId = doc.data().uid;
+                self.chatWithWho.push(item);
+              });
+            });
+          }
+          // this.userGetAccount();
+        }
+      }
+    }
   }
 }
 </script>

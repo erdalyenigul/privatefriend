@@ -10,7 +10,10 @@
       </div>
       <form @submit.prevent="login">
         <span class="formW100"><input type="email" placeholder="E-posta" v-model="email" /></span>
-        <span class="formW100"><input type="password" placeholder="Şifre" v-model="password" /></span>
+        <span class="formW100">
+          <a class="showPassLogin" @click="showPass"><font-awesome-icon icon="eye" /></a>
+          <input id="password" type="password" placeholder="Şifre" v-model="password" />
+          </span>
         <div v-if="errorShow" class="errorMsg">{{ errorMsg }}</div>
         <button type="submit" class="button primaryBtn">GİRİŞ YAP</button>
       </form>
@@ -34,7 +37,8 @@ export default {
       password: "",
       errorShow: false,
       errorMsg: "",
-      userId: ""
+      userId: "",
+      showPassToggle: false,
     };
   },
   asyncData({ req, redirect, route }) {
@@ -47,7 +51,23 @@ export default {
       }
     }
   },
+  created() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.$router.push('/users/list');          
+      }
+    })
+  },
   methods: {
+    showPass() {
+      this.showPassToggle = !this.showPassToggle;
+      var pass = document.querySelector("#password");
+      if(this.showPassToggle) {
+        pass.type = "text";
+      } else {
+        pass.type = "password";
+      }
+    },
     login() {
       let self = this;
       firebase.auth().signInWithEmailAndPassword(this.email, this.password)

@@ -1,7 +1,7 @@
 {
-  "name": "privateProfile",
+  "name": "FriendForFind",
   "version": "1.0.0",
-  "description": "Private profile",
+  "description": "Friend For Find",
   "author": "erdal.yenigul",
   "private": true,
   "scripts": {
@@ -16,10 +16,11 @@
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "@nuxtjs/axios": "^5.3.6",
     "cookieparser": "^0.1.0",
-    "firebase": "^7.15.1",
+    "firebase": "^7.15.3",
     "js-cookie": "^2.2.1",
     "jwt-decode": "^2.2.0",
     "nuxt": "^2.0.0",
+    "vue-image-upload-resize": "^2.3.0",
     "vuejs-datepicker": "^1.6.2"
   },
   "devDependencies": {

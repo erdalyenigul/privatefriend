@@ -13,6 +13,7 @@
     </div>
     <div class="profileWrap" v-if="!email_verified && setData">
       <div class="profileInfoHead">
+        <div v-if="loading" class="loadingBar"><img src="@/assets/images/loading.gif" alt=""> Fotoğraf yükleniyor, lütfen bekleyin...</div>
         <div class="profilPhoto">
           <img v-if="account.pPhoto" :src="account.pPhoto" :alt="account.name" @click="showBigPP">
         </div>
@@ -20,15 +21,19 @@
           <li class="fullName">{{ account.name }} {{ account.surname }}</li>
           <li class="email">{{ account.email }}</li>
           <li class="complateProfileBtn">
-            <input type="file" ref="uploadPP" @change="previewPP($event)" class="uploadPPInput">
-            <a @click="$refs.uploadPP.click()" class="button primaryBtn">
-              Profil fotoğrafı yükle <font-awesome-icon icon="image" />
-            </a>
+            <image-uploader :preview=false outputFormat="blob" :maxWidth="512" :quality="0.7" @input="setImage">
+              <label for="fileInput" class="button primaryBtn imageUploaderBtn" slot="upload-label">
+                <span class="upload-caption">{{
+                  hasImage ? "Profil fotoğrafı yükle" : "Profil fotoğrafı yükle"
+                }}</span>
+                <font-awesome-icon icon="image" />
+              </label>
+            </image-uploader>
             <nuxt-link to="profile" class="button">
               Profilimi gör <font-awesome-icon icon="angle-right" />
             </nuxt-link>
           </li>
-          <li>
+          <li v-if="account.pPhoto">
             <a class="removePphoto" @click="removePphoto">Profil fotoğrafımı kaldır</a>
           </li>
         </ul>
@@ -36,20 +41,10 @@
       <form @submit.prevent="saveProfile">
         <div class="profileDetail">
           <div class="pdLine textarea">
-            <div class="pdHead">Biyografi*</div>
+            <div class="pdHead">Biyografi* <span>{{ charactersLeft }}</span></div>
             <span class="textareaWrap">
-              <textarea v-model="account.person.biography" placeholder="En az 150 karakter"></textarea>
+              <textarea v-model="account.person.biography" placeholder="En az 80 karakter"></textarea>
             </span>
-          </div>        
-          <div class="pdLine">
-            <div class="uiLineLeft">Doğum tarihi*</div>
-            <div class="uiLineRight">
-              <div class="dateInput">
-                <client-only>
-                  <date-picker required placeholder="GG/AA/YYYY" format="dd-MM-yyyy" v-model="account.person.birthday" />
-                </client-only>
-              </div>
-            </div>
           </div>
           <div class="pdLine mb40">
             <div class="uiLineLeft">Şehir*</div>
@@ -114,6 +109,12 @@ import { getUserFromCookie, getUserFromSession } from "@/helpers";
 export default {
   data() {
     return {
+      lang: {
+        formatLocale: {
+          firstDayOfWeek: 1,
+          months: ['Ocak', 'Şubat', 'March', 'April', 'May', 'Haziran', 'July', 'August', 'September', 'October', 'November', 'December'],
+        },
+      },
       emailVerified: false,
       user: '',
       email_verified: false,     
@@ -125,6 +126,10 @@ export default {
       notifyIcon: '',
       setData: false,
       showBigPPModal: false,
+      checkUserPP: '',
+      loading: false,
+      image: '',
+      hasImage: '',
 
       account: {
         pPhoto: '',
@@ -161,6 +166,14 @@ export default {
   },
   mounted() {
     this.userGetAccount();
+    
+  },
+  computed: {
+    charactersLeft() {
+        var char = this.account.person.biography.length,
+        limit = 80;
+        return (limit - char) + " / " + limit + " karakter kaldı.";
+      }
   },
   methods: {
     async userGetAccount(){
@@ -175,6 +188,7 @@ export default {
               querySnapshot.forEach(doc => {
                 self.account = doc.data().account;
               });
+              self.checkUserPP = firebase.storage().ref('profiles/' + this.userID).name;
               self.setData = true;
             });
 
@@ -193,7 +207,7 @@ export default {
     },
     saveProfile() {
       let self = this;
-      if(this.account.person.biography.length >= 150) {
+      if(this.account.person.biography.length >= 80) {
         firebase.firestore().collection("profiles").doc(self.userID).set({
           account: self.account
         }, { merge: true })
@@ -211,43 +225,50 @@ export default {
       } else { 
         self.notify = true;
         self.notifyIcon = 'exclamation-circle';
-        self.notifyMsg = 'Biyografi en az 150 karakter olmalı.';
+        self.notifyMsg = 'Biyografi en az 80 karakter olmalı.';
         setTimeout(() => {
           this.notify = false;
         }, 5000);
       }
     },
-    previewPP(e) {
-      if(e.target.files[0]) {
-        this.ppImageFile = e.target.files[0];
-        this.account.pPhoto = URL.createObjectURL(this.ppImageFile);
-        this.updatePP();
-      }
+    setImage(blob) {
+      self.loading = true;
+      this.hasImage = true;
+      this.image = blob;
+      this.updatePP();
     },
-    async updatePP(e) {
+    async updatePP() {
       var self = this;
 
       let storageRef = firebase.storage().ref('profiles/' + self.userID);
       if(storageRef){
         storageRef.delete().then(function() {}).catch(function(error) {});
       }
+      
+      let uploadTask = storageRef.put(this.image);
+      await uploadTask.then(function() {        
 
-      let uploadTask = storageRef.put(this.ppImageFile);
-      await uploadTask.on("state_changed", snapshot => {
-        
         firebase.storage().ref('profiles/' + self.userID).getDownloadURL()
         .then(function(url) {
+          self.account.pPhoto = url;
           firebase.firestore().collection("profiles").doc(self.userID).set({
             account: {
               pPhoto: url
             }
           }, { merge: true })
           .then(function() {
-
+            self.loading = false;
+            self.notify = true;
+            self.notifyMsg = 'Profil fotoğrafı yüklendi';
+            self.notifyIcon = 'check';
+            setTimeout(() => {
+              self.notify = false;
+            }, 5000);
           })
           .catch(function(error) {
             console.error("Error writing document: ", error);
           });
+
         })
         .catch(function(error) {
           console.log(error.message);
@@ -260,13 +281,31 @@ export default {
       this.showBigPPModal = true;
     },
     removePphoto() {
-      console.log('asas');
-
       var self = this;
-      let storageRef = firebase.storage().ref('profiles/' + self.userID);
-      storageRef.delete().then(function() {
-        console
-      }).catch(function(error) {});
+
+      firebase.storage().ref('profiles/' + self.userID).delete().then(function() {
+        self.account.pPhoto = false;
+
+        firebase.firestore().collection('profiles').doc(self.userID).set({
+          account: {
+            pPhoto: self.account.pPhoto
+          }
+        }, { merge: true })
+        .then(function() {
+          self.notify = true;
+          self.notifyMsg = 'Profil fotoğrafı silindi';
+          self.notifyIcon = 'check';
+          setTimeout(() => {
+            self.notify = false;
+          }, 5000);
+        }).catch(function(error) {
+          console.log(error)
+        });
+        
+        
+      }).catch(function(error) {
+        console.log(error)
+      });
     }
   }
 }

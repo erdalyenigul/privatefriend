@@ -111,7 +111,8 @@ body {
 }
 
 .modalWrap .modalContent {
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   background-color: #fff;
   position: relative;
   border-radius: 10px;
@@ -120,7 +121,7 @@ body {
 .modalWrap .modalContent .modalCloseBtn {
   position: absolute;
   right: 15px;
-  top: -40px;
+  top: 0;
   cursor: pointer;
   width: 40px;
   height: 40px;
@@ -196,6 +197,17 @@ body {
 .modalWrap .modalContent .showBigPPModal {
   float: left;
   width: 100%;
+  max-height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
 }
 
 .modalWrap .modalContent .showBigPPModal img {
@@ -322,6 +334,24 @@ body {
   margin-right: 5px;
 }
 
+.containerAll header .headRight .headLinks .notifyCounter {
+  color: #222;
+  background-color: #fff;
+  border-radius: 3px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 5px;
+  padding: 0 5px;
+}
+
 .containerAll header .headRight .headAccount {
   float: left;
   white-space: nowrap;
@@ -347,16 +377,21 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   cursor: pointer;
+  width: 100%;
 }
 
-.containerAll header .headRight .headAccount img {
+.containerAll header .headRight .headAccount .accountPP {
   width: 45px;
   height: 45px;
   overflow: hidden;
   border-radius: 50%;
 }
 
-.containerAll header .headRight .headAccount span {
+.containerAll header .headRight .headAccount .accountPP img {
+  width: 100%;
+}
+
+.containerAll header .headRight .headAccount .accountFullName {
   float: left;
   width: calc(100% - 50px);
   padding-right: 20px;
@@ -378,6 +413,44 @@ body {
   color: #fff;
 }
 
+.containerAll header .newMessageIcon {
+  float: left;
+  cursor: pointer;
+  height: 34px;
+  position: relative;
+  margin-right: 20px;
+  display: none;
+}
+
+.containerAll header .newMessageIcon svg {
+  width: 30px;
+  color: #fff;
+  margin-top: 3px;
+}
+
+.containerAll header .newMessageIcon .counter {
+  position: absolute;
+  left: 24px;
+  top: -3px;
+  font-size: 13px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 15px;
+  background-color: #fa3e3e;
+  border-radius: 2px;
+  color: #fff;
+  padding: 2px 3px 0;
+  height: 25px;
+}
+
 .containerAll header .sideMenu {
   position: fixed;
   right: 0;
@@ -395,7 +468,7 @@ body {
 
 .containerAll header .sideMenu .sideMenuCloseBtn {
   position: absolute;
-  right: 10px;
+  right: 30px;
   top: 10px;
   cursor: pointer;
   z-index: 3;
@@ -447,6 +520,24 @@ body {
   color: #007bff;
 }
 
+.containerAll header .sideMenu .sideMenuContent ul li.messageInfo span {
+  color: #222;
+  background-color: #fff;
+  border-radius: 3px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 5px;
+  padding: 0 5px;
+}
+
 .containerAll header .sideMenu .sideMenuContent .accountInfo a {
   float: left;
   width: 100%;
@@ -462,6 +553,9 @@ body {
 
 .containerAll header .sideMenu .sideMenuContent .accountInfo a img {
   width: 50px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -594,6 +688,7 @@ body {
   float: left;
   width: 100%;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .containerAll .welcome .welcomeForm .formW100 input {
@@ -603,6 +698,48 @@ body {
   height: 40px;
   border: 1px solid #ddd;
   border-radius: 5px;
+}
+
+.containerAll .welcome .welcomeForm .formW100 .showPassRegister {
+  position: absolute;
+  left: 0;
+  bottom: -13px;
+  cursor: pointer;
+  color: #222;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+.containerAll .welcome .welcomeForm .formW100 .showPassRegister svg {
+  width: 20px;
+  color: #696969;
+  margin-right: 5px;
+}
+
+.containerAll .welcome .welcomeForm .formW100 .showPassLogin {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  color: #222;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+.containerAll .welcome .welcomeForm .formW100 .showPassLogin svg {
+  width: 20px;
+  color: #696969;
+  margin-right: 5px;
 }
 
 .containerAll .welcome .welcomeForm .formW50 {
@@ -970,6 +1107,18 @@ body {
   line-height: 20px;
   font-weight: 600;
   margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.containerAll .profileWrap .profileDetail .pdLine .pdHead span {
+  font-size: 12px;
+  padding: 0 10px;
+  font-style: italic;
 }
 
 .containerAll .profileWrap .profileDetail .pdLine .uiLineLeft {
@@ -1032,7 +1181,6 @@ body {
   width: 100%;
   height: 50px;
   z-index: 1;
-  border-radius: 5px;
   margin-bottom: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1040,7 +1188,14 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .containerAll .notify span {
@@ -1124,6 +1279,9 @@ body {
 
 .containerAll .userCard .ucContent .userImage img {
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .containerAll .userCard .ucContent .userInfo {
@@ -1363,6 +1521,25 @@ body {
   margin-bottom: 5px;
 }
 
+.containerAll .chatWithWho .chatCard .ccInfo .newMessage {
+  font-size: 13px;
+  background-color: #cc0000;
+  color: #fff;
+  width: auto;
+  padding: 0 10px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 20px;
+}
+
 .containerAll .uploadAccountPhotoWrap {
   float: left;
   width: 100%;
@@ -1382,14 +1559,14 @@ body {
 }
 
 .containerAll .uploadAccountPhotoWrap .accountPhotos .imgsLine {
-  margin-left: -20px;
-  margin-right: -20px;
+  margin-left: -5px;
+  margin-right: -5px;
 }
 
 .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap {
   float: left;
   width: 33.3%;
-  padding: 20px;
+  padding: 5px;
   overflow: hidden;
 }
 
@@ -1406,26 +1583,27 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   height: 250px;
-  border-radius: 10px;
   overflow: hidden;
   position: relative;
 }
 
 .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap .imgContent .removePhoto {
   position: absolute;
-  bottom: 0px;
+  top: 0px;
   left: 0;
   color: #fff;
   padding: 5px 10px;
   font-size: 14px;
   font-weight: 600;
-  border-radius: 0 10px 0 0;
   background-color: #cc0000;
   cursor: pointer;
 }
 
 .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap img {
-  width: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  width: auto;
+  height: auto;
   display: block;
   cursor: pointer;
 }
@@ -1459,7 +1637,7 @@ body {
 
 .containerAll .uploadAccountPhotoWrap .uploadPhotosWrap .uploadPreviewPhoto {
   float: left;
-  width: calc(100% - 300px);
+  width: 100%;
   margin-bottom: 20px;
 }
 
@@ -1468,29 +1646,15 @@ body {
   border-radius: 10px;
 }
 
+.containerAll .uploadAccountPhotoWrap .uploadPhotosWrap svg {
+  width: 20px;
+}
+
 .containerAll .vdp-datepicker__calendar {
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   border: 0;
   color: #222;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 .containerAll .vdp-datepicker__calendar header {
@@ -1520,6 +1684,101 @@ body {
 .containerAll .vdp-datepicker__calendar .cell.selected {
   background: #162f4a;
   color: #fff;
+}
+
+.containerAll footer {
+  float: left;
+  width: 100%;
+  padding: 30px;
+  background-color: #222;
+}
+
+.containerAll footer .footerContent {
+  float: left;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #fff;
+  font-size: 14px;
+}
+
+.containerAll footer a {
+  color: #007bff;
+}
+
+.containerAll .loadingBar {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.containerAll .loadingBar img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.containerAll .img-preview {
+  float: left;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.containerAll #fileInput {
+  display: none;
+}
+
+.containerAll .imageUploaderBtn {
+  height: 34px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.containerAll .imageUploaderWrap img {
+  width: 100%;
+  max-width: 400px;
+}
+
+@media (max-width: 1023px) {
+  .containerAll header .sideMenuOpenBtn {
+    display: block;
+  }
+  .containerAll header .newMessageIcon {
+    display: block;
+  }
+  .containerAll header .headRight .headLinks {
+    display: none;
+  }
+  .containerAll header .headRight .headAccount {
+    display: none;
+  }
+  .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap .imgContent {
+    height: 200px;
+  }
+  .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap img {
+    max-width: 300px;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1577,15 +1836,6 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-  .containerAll header .sideMenuOpenBtn {
-    display: block;
-  }
-  .containerAll header .headRight .headLinks {
-    display: none;
-  }
-  .containerAll header .headRight .headAccount {
-    display: none;
   }
   .containerAll .profileWrap .profileInfoHead ul li.fullName {
     font-size: 26px;
@@ -1724,10 +1974,6 @@ body {
   .containerAll .welcomeForm .mobileWelcomeBottom span {
     color: #fff;
   }
-  .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap {
-    width: 100%;
-    padding: 20px 0;
-  }
   .containerAll .uploadAccountPhotoWrap .accountPhotos .imgsLine {
     margin-left: 0;
     margin-right: 0;
@@ -1792,5 +2038,55 @@ body {
   .containerAll .messagesWrap .sendMessageLine .sendMessageInput {
     height: 40px;
     padding: 0 10px;
+  }
+  .vdp-datepicker__calendar {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: 0;
+    color: #222;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: #fff !important;
+    width: 100% !important;
+    position: fixed !important;
+  }
+  .vdp-datepicker__calendar header {
+    height: 40px;
+  }
+  .modalWrap .modalContent .showBigPPModal img {
+    border-radius: 0;
+  }
+  .containerAll .uploadAccountPhotoWrap .accountPhotos .imgWrap .imgContent {
+    height: 100px;
+  }
+  .modalWrap .modalContent .showBigPPModal {
+    max-height: auto;
+  }
+  .containerAll .welcome .welcomeForm .formW100 .showPassRegister {
+    color: #fff;
+    font-weight: 600;
+    bottom: -16px;
+  }
+  .containerAll .welcome .welcomeForm .formW100 .showPassRegister svg {
+    color: #fff;
+  }
+  .containerAll .welcome .welcomeForm .passWrap {
+    margin-bottom: 20px;
   }
 }
