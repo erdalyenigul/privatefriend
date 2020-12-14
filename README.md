@@ -7,28 +7,8 @@
 ### Profil fotoğrafı ve fotoğraf galerisi oluşturma,
 ### Kullanıcıları listeleme
 
-## Teknolojiler: VueJs, NuxtJs, Firebase
+## Teknolojiler: VueJs, NuxtJs, Firebase, Google App Engine
 
 ### Create account, sign in, create profile, create photo gallery, list users, message with other users..
-### VueJs, NuxtJs, Firebase, Google App Engine
 
 ## Demo: https://friendforfind.com/
-
-### Build Setup
-
-``` bash
-# install dependencies
-$ npm run install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
