@@ -1,11 +1,20 @@
-# privateProfile
+## Tasarım ve kodlamasını yaptığım arkadaşlık sitesi
+
+### Özellikler :
+### Sıfırdan e-posta aktivasyon onaylı üyelik oluşturma,
+### Detaylı profil yaratma: Biyografi, Cinsiyet, Doğum tarihi, Yaş, Şehir, İş, Eğitim, Burç, Boy, Göz rengi, Saç rengi, İlgi alanları, Favori filmler, Sevdiği müzik grupları/sanatçıları,
+### Diğer kullanıcılarla anlık mesajlaşma sistemi,
+### Profil fotoğrafı ve fotoğraf galerisi oluşturma,
+### Kullanıcıları listeleme
+
+## Teknolojiler: VueJs, NuxtJs, Firebase
 
 ### Create account, sign in, create profile, create photo gallery, list users, message with other users..
 ### VueJs, NuxtJs, Firebase, Google App Engine
 
-## Demo: https://privatefriend.ew.r.appspot.com/
+## Demo: https://friendforfind.com/
 
-## Build Setup
+### Build Setup
 
 ``` bash
 # install dependencies
